@@ -1,0 +1,83 @@
+---
+title: "LLM Persona Rater: Preliminary Reliability Checks"
+author: "Philipp Chapkovski"
+format:
+  html:
+    toc: true
+    number-sections: true
+execute:
+  warning: false
+  message: false
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pacman)
+p_load(tidyverse, psych, irr, here, stringdist)
+```
+
+
+## Load Data
+```{r load-data}
+expected_rank_df<- read_csv(here(".", "messages_with_expected_rank.csv"))
+
+data <- read_csv(here(".", "custom_feedback_runs_by_group.csv"))
+# let's attach expected rank to data
+data <- data %>%
+  left_join(expected_rank_df, by = "message")
+```
+
+## Let's check if average ratings (avg_score) correlate with expected rank
+```{r avg-rank-corr}
+ 
+
+by_group <- data %>%
+  group_by(gender, age, message, expected_rank) %>%
+  summarise(mean_score = mean(avg_score, na.rm = TRUE), .groups = "drop") %>%
+  group_by(gender, age) %>%
+  mutate(
+    avg_rank = rank(mean_score, ties.method = "average")  # 1 = lowest mean_score
+  ) %>%
+  ungroup()
+
+by_group_mean <- by_group %>%
+  group_by(gender, age, message, expected_rank) %>%
+  summarise(mean_score = mean(avg_rank, na.rm = TRUE), .groups = "drop")
+
+ggplot(by_group_mean, aes(x = expected_rank, y = mean_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(gender ~ age) +
+  scale_x_continuous(breaks = 1:10) +
+  labs(
+    x = "Expected rank (1 = worst, 10 = best)",
+    y = "Mean avg_rank (1 = lowest mean_score)",
+    title = "Mean score vs expected rank by demographic group"
+  )
+```
+       
+       
+small heatmap
+```{r heatmap}
+
+library(stringr)
+
+by_group %>%
+  mutate(
+    rank_error = avg_rank - expected_rank,
+    message_stub = str_sub(message, 1, 20),
+    message_stub = paste0(message_stub, "…")
+  ) %>%
+  ggplot(aes(x = expected_rank, y = reorder(message_stub, expected_rank), fill = rank_error)) +
+  geom_tile() +
+  facet_grid(gender ~ age) +
+  labs(
+    x = "Expected rank",
+    y = "Message (stub)",
+    fill = "Error",
+    title = "Rank error (observed minus expected)"
+  )
+
+```
+
