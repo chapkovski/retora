@@ -505,6 +505,165 @@ ggplot(msg_score_gender_wide, aes(x = human, y = retora, label = message_prefix)
   facet_wrap(~gender)
 ```
 
+## Retora Rank Stability (Across Runs and Demographics)
+
+This section looks only at Retora outputs. We first ask: *if we repeat the same run multiple times, do we get the same ranking of messages?*  
+Then we check: *do different demographic groups produce similar rankings?*
+
+### Stability Across Runs (within each age x gender group)
+```{r retora-run-stability}
+retora_msg_run <- retora_long %>%
+  group_by(gender, age, message_prefix, run_number) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
+
+retora_msg_group_mean <- retora_msg_run %>%
+  group_by(gender, age, message_prefix) %>%
+  summarise(mean_score = mean(mean_score, na.rm = TRUE), .groups = "drop") %>%
+  group_by(gender, age) %>%
+  mutate(rank_mean = dense_rank(desc(mean_score))) %>%
+  ungroup()
+
+retora_msg_run_rank <- retora_msg_run %>%
+  mutate(run_number = as.integer(run_number)) %>%
+  group_by(gender, age, run_number) %>%
+  mutate(rank_run = dense_rank(desc(mean_score))) %>%
+  ungroup()
+
+retora_run_vs_mean <- retora_msg_run_rank %>%
+  left_join(
+    retora_msg_group_mean %>% select(gender, age, message_prefix, rank_mean),
+    by = c("gender", "age", "message_prefix")
+  )
+
+run_stability <- retora_run_vs_mean %>%
+  group_by(gender, age, run_number) %>%
+  summarise(
+    spearman = cor(rank_run, rank_mean, method = "spearman", use = "complete.obs"),
+    pearson = cor(rank_run, rank_mean, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(rank_run ~ rank_mean, data = data.frame(rank_run, rank_mean)))$r.squared,
+    .groups = "drop"
+  )
+
+run_stability_summary <- run_stability %>%
+  group_by(gender, age) %>%
+  summarise(
+    spearman_mean = mean(spearman, na.rm = TRUE),
+    spearman_sd = sd(spearman, na.rm = TRUE),
+    pearson_mean = mean(pearson, na.rm = TRUE),
+    pearson_sd = sd(pearson, na.rm = TRUE),
+    r2_mean = mean(r2, na.rm = TRUE),
+    r2_sd = sd(r2, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+overall_run_spearman <- mean(run_stability$spearman, na.rm = TRUE)
+overall_run_pearson <- mean(run_stability$pearson, na.rm = TRUE)
+
+lowest_groups <- run_stability_summary %>%
+  arrange(spearman_mean) %>%
+  slice(1:3) %>%
+  mutate(label = paste(gender, age, sep = " "))
+
+run_stability_summary %>%
+  arrange(desc(spearman_mean)) %>%
+  kable(digits = 3, col.names = c(
+    "Gender", "Age",
+    "Spearman Mean", "Spearman SD",
+    "Pearson Mean", "Pearson SD",
+    "R2 Mean", "R2 SD"
+  )) %>%
+  kable_styling(full_width = FALSE)
+```
+
+```{r retora-run-stability-plot}
+run_stability %>%
+  ggplot(aes(x = run_number, y = spearman, color = gender, group = gender)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~age) +
+  labs(
+    x = "Run number",
+    y = "Spearman rho (run vs group mean rank)",
+    title = "Retora rank stability across runs"
+  )
+```
+
+**Why stability matters**  
+Stability is basically the “would we get the same answer twice?” test. If the same Retora setup is run again and the message order changes a lot, it is hard to trust the ranking for decisions like which message to show, which copy to keep, or which segment to target. Stable rankings mean the system is picking up a real preference signal, not noise from sampling, randomness, or small quirks in who happened to be included. It also makes the results easier to explain to others, because you can say “this ordering is robust,” not “it depends on the run.”
+
+**How stable these rankings are**  
+Overall, these rankings look quite stable. In most age and gender groups, rerunning the same setup gives you almost the same ordering of messages, with only small reshuffling. The average similarity across runs is high (Spearman `r round(overall_run_spearman, 2)` and Pearson `r round(overall_run_pearson, 2)`), which in plain terms means “usually the same story.”
+
+Where it gets a bit less steady is in the groups with the lowest average Spearman. In this run, those are: `r paste(lowest_groups$label, collapse = ", ")`. There, the ordering still tends to be broadly similar, but you see more wobble from run to run, meaning a few messages trade places depending on the particular run. In the plot, occasional dips look like “one run had an odd shuffle,” rather than a general collapse of consistency.
+
+So the human summary is: Retora is giving a fairly reliable message ordering across repeated runs, and it is also broadly consistent across demographic groups. The main caution is that a couple of segments show more run-to-run variability, so you should treat fine-grained differences in those segments (like rank 4 vs rank 6) as less certain than the big picture (top messages vs bottom messages).
+
+### Stability Across Demographic Groups
+```{r retora-demographic-stability}
+retora_msg_group_rank <- retora_msg_group_mean %>%
+  mutate(group = paste(gender, age, sep = " | ")) %>%
+  select(group, message_prefix, rank_mean)
+
+group_rank_wide <- retora_msg_group_rank %>%
+  pivot_wider(names_from = group, values_from = rank_mean)
+
+group_rank_mat <- group_rank_wide %>%
+  select(-message_prefix) %>%
+  as.matrix()
+
+group_rank_cor <- cor(group_rank_mat, method = "spearman", use = "pairwise.complete.obs")
+
+group_rank_cor_long <- as.data.frame(as.table(group_rank_cor)) %>%
+  rename(group_x = Var1, group_y = Var2, spearman = Freq)
+
+ggplot(group_rank_cor_long, aes(x = group_x, y = group_y, fill = spearman)) +
+  geom_tile() +
+  scale_fill_viridis_c(limits = c(-1, 1)) +
+  labs(
+    x = NULL,
+    y = NULL,
+    fill = "Spearman rho",
+    title = "Similarity of Retora rankings across age x gender groups"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r retora-gender-stability}
+retora_gender_rank <- retora_long %>%
+  filter(gender %in% c("Male", "Female")) %>%
+  group_by(gender, message_prefix) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop") %>%
+  group_by(gender) %>%
+  mutate(rank = dense_rank(desc(mean_score))) %>%
+  ungroup()
+
+gender_rank_wide <- retora_gender_rank %>%
+  select(gender, message_prefix, rank) %>%
+  pivot_wider(names_from = gender, values_from = rank)
+
+gender_stats <- gender_rank_wide %>%
+  summarise(
+    spearman = cor(Male, Female, method = "spearman", use = "complete.obs"),
+    pearson = cor(Male, Female, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(Female ~ Male, data = data.frame(Male, Female)))$r.squared
+  )
+
+gender_stats %>%
+  kable(digits = 3, col.names = c("Spearman rho", "Pearson r", "R2")) %>%
+  kable_styling(full_width = FALSE)
+
+ggplot(gender_rank_wide, aes(x = Male, y = Female, label = message_prefix)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue", linetype = "dashed") +
+  geom_text(vjust = -0.6, size = 3) +
+  labs(x = "Male rank", y = "Female rank", title = "Retora ranks: Male vs Female")
+```
+
+**Plain-language takeaways**  
+- **Across runs:** high Spearman/Pearson means repeating the same Retora setup gives very similar message ordering.  
+- **Across groups:** high correlations mean different age/gender segments still rank messages in a similar order.  
+- **Lower values** suggest that rankings shift depending on which group you look at or which run you sample.
+
 ## Dimension-Level Comparison
 ```{r dim-compare}
 dim_compare <- both_long %>%
