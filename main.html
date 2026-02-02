@@ -8,7 +8,7 @@
 
 <meta name="author" content="Philipp Chapkovski">
 
-<title>LLM Persona Rater: Preliminary Reliability Checks</title>
+<title>Human vs Retora Message Ratings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,6 +36,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="main_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="main_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="main_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="main_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -83,7 +50,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#load-data" id="toc-load-data" class="nav-link active" data-scroll-target="#load-data"><span class="header-section-number">1</span> Load Data</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">2</span> Data Sources</a></li>
+  <li><a href="#prepare-human-ratings" id="toc-prepare-human-ratings" class="nav-link" data-scroll-target="#prepare-human-ratings"><span class="header-section-number">3</span> Prepare Human Ratings</a></li>
+  <li><a href="#prepare-retora-runs" id="toc-prepare-retora-runs" class="nav-link" data-scroll-target="#prepare-retora-runs"><span class="header-section-number">4</span> Prepare Retora Runs</a></li>
+  <li><a href="#combine-sources" id="toc-combine-sources" class="nav-link" data-scroll-target="#combine-sources"><span class="header-section-number">5</span> Combine Sources</a></li>
+  <li><a href="#message-summary-table-rank-comparison" id="toc-message-summary-table-rank-comparison" class="nav-link" data-scroll-target="#message-summary-table-rank-comparison"><span class="header-section-number">6</span> Message Summary Table (Rank Comparison)</a></li>
+  <li><a href="#message-level-comparison-overall" id="toc-message-level-comparison-overall" class="nav-link" data-scroll-target="#message-level-comparison-overall"><span class="header-section-number">7</span> Message-Level Comparison (Overall)</a></li>
+  <li><a href="#message-level-comparison-by-dimension" id="toc-message-level-comparison-by-dimension" class="nav-link" data-scroll-target="#message-level-comparison-by-dimension"><span class="header-section-number">8</span> Message-Level Comparison by Dimension</a></li>
+  <li><a href="#message-level-comparison-by-age" id="toc-message-level-comparison-by-age" class="nav-link" data-scroll-target="#message-level-comparison-by-age"><span class="header-section-number">9</span> Message-Level Comparison by Age</a></li>
+  <li><a href="#message-level-comparison-by-gender-malefemale" id="toc-message-level-comparison-by-gender-malefemale" class="nav-link" data-scroll-target="#message-level-comparison-by-gender-malefemale"><span class="header-section-number">10</span> Message-Level Comparison by Gender (Male/Female)</a></li>
+  <li><a href="#agreement-metrics-message-level" id="toc-agreement-metrics-message-level" class="nav-link" data-scroll-target="#agreement-metrics-message-level"><span class="header-section-number">11</span> Agreement Metrics (Message Level)</a></li>
+  <li><a href="#agreement-metrics-mean-scores" id="toc-agreement-metrics-mean-scores" class="nav-link" data-scroll-target="#agreement-metrics-mean-scores"><span class="header-section-number">12</span> Agreement Metrics (Mean Scores)</a></li>
+  <li><a href="#dimension-level-comparison" id="toc-dimension-level-comparison" class="nav-link" data-scroll-target="#dimension-level-comparison"><span class="header-section-number">13</span> Dimension-Level Comparison</a></li>
   </ul>
 </nav>
 </div>
@@ -91,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LLM Persona Rater: Preliminary Reliability Checks</h1>
+<h1 class="title">Human vs Retora Message Ratings</h1>
 </div>
 
 
@@ -114,24 +93,439 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="load-data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="load-data"><span class="header-section-number">1</span> Load Data</h2>
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
+<p>This report compares human survey ratings with Retora model outputs for the same set of messages. We summarize agreement at the message level, examine patterns by demographic group, and provide dimension-level comparisons.</p>
+</section>
+<section id="data-sources" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">2</span> Data Sources</h2>
+<ul>
+<li>Qualtrics export: retora_February 2, 2026_15.54.csv</li>
+<li>Retora runs: custom_feedback_runs_by_group.csv</li>
+<li>Message ID map: messages_surveyjs_id_map.csv</li>
+</ul>
+</section>
+<section id="prepare-human-ratings" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="prepare-human-ratings"><span class="header-section-number">3</span> Prepare Human Ratings</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"."</span>, <span class="st">"custom_feedback_runs_by_group.csv"</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 16
-  message        run_number timestamp           avg_score gender age   agreement
-  &lt;chr&gt;               &lt;dbl&gt; &lt;dttm&gt;                  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;
-1 Meeting the 2…          1 2026-01-26 08:10:37       8.2 Female 25-34         9
-2 To credibly r…          1 2026-01-26 08:10:37       8.1 Female 25-34         9
-3 If the EU is …          1 2026-01-26 08:10:38       8.2 Female 25-34         9
-4 The EU must s…          1 2026-01-26 08:10:39       5.5 Female 25-34         4
-5 To achieve ca…          1 2026-01-26 08:10:39       4   Female 25-34         2
-6 The EU must s…          1 2026-01-26 08:10:43       8.3 Female 25-34         9
-# ℹ 9 more variables: attitude_change &lt;dbl&gt;, clarity &lt;dbl&gt;, credibility &lt;dbl&gt;,
-#   emotional_impact &lt;dbl&gt;, engagement_intention &lt;dbl&gt;, memorability &lt;dbl&gt;,
-#   persuasiveness &lt;dbl&gt;, relevance &lt;dbl&gt;, trustworthiness &lt;dbl&gt;</code></pre>
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">age_label</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">gender_label</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35-44</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">35-44</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">45-54</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">45-54</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">55-64</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">55-64</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">18-24</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18-24</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">65+</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">65+</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Prefer not to say</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35-44</td>
+<td style="text-align: left;">Prefer not to say</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="prepare-retora-runs" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="prepare-retora-runs"><span class="header-section-number">4</span> Prepare Retora Runs</h2>
+</section>
+<section id="combine-sources" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="combine-sources"><span class="header-section-number">5</span> Combine Sources</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">source</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_ratings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">human</td>
+<td style="text-align: right;">1998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">retora</td>
+<td style="text-align: right;">12100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="message-summary-table-rank-comparison" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="message-summary-table-rank-comparison"><span class="header-section-number">6</span> Message Summary Table (Rank Comparison)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Message ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Message Text</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Human Rank</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Retora Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">msg_01</td>
+<td style="text-align: left;">To achieve carbon neutrality by 2050, the EU should strengthen climate policy by expanding renewables and also increasing fossil fuel production to stabilize emissions. A just transition is needed, but jobs should not change.</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">msg_02</td>
+<td style="text-align: left;">The EU must strengthen climate policy to reach carbon neutrality by 2050, but we should avoid major changes. Invest massively in renewables while keeping fossil jobs exactly as they are.</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">msg_03</td>
+<td style="text-align: left;">The EU must reach carbon neutrality by 2050 with stronger climate policy, but it should cost nothing and require no lifestyle changes. Invest massively in renewables while guaranteeing no higher bills and no disruption.</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">msg_04</td>
+<td style="text-align: left;">To reach carbon neutrality by 2050, the EU should strengthen climate policy and invest in renewables. This can be done without meaningful public spending if markets work properly and workers adapt.</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">msg_05</td>
+<td style="text-align: left;">The EU must impose tougher climate rules to force rapid decarbonization by 2050. Fossil industries have delayed progress too long, so they should accept the costs while renewables expand quickly.</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">msg_06</td>
+<td style="text-align: left;">Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewable deployment, grid upgrades, and stable investment rules. A just transition should fund retraining and targeted regional support for fossil-dependent areas.</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">msg_07</td>
+<td style="text-align: left;">Carbon neutrality by 2050 requires stronger EU policies focused on delivery: accelerate permits for renewables, invest in grids, and provide predictable signals for investors. To sustain support, fund retraining and transition protections.</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">msg_08</td>
+<td style="text-align: left;">To credibly reach carbon neutrality by 2050, the EU should strengthen climate policy through faster permitting, grid investment, and clear financing pathways for renewables. Pair this with retraining, wage support, and regional development.</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">msg_09</td>
+<td style="text-align: left;">The EU must strengthen climate policies to reach carbon neutrality by 2050. This requires major investment in renewables and a just transition that supports workers and regions affected by the decline of fossil fuels.</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">msg_10</td>
+<td style="text-align: left;">If the EU is serious about carbon neutrality by 2050, it must strengthen climate policy with execution: speed renewable permitting, modernize grids, and mobilize public and private capital. Guarantee a just transition for workers and regions.</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="message-level-comparison-overall" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="message-level-comparison-overall"><span class="header-section-number">7</span> Message-Level Comparison (Overall)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Message Text</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Human Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Retora Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Human N</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Retora N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">To reach carbon neutrality by 2050, the EU should strengthen climate policy and invest in renewables. This can be done without meaningful public spending if markets work properly and workers adapt.</td>
+<td style="text-align: right;">7.518</td>
+<td style="text-align: right;">6.467</td>
+<td style="text-align: right;">220</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The EU must impose tougher climate rules to force rapid decarbonization by 2050. Fossil industries have delayed progress too long, so they should accept the costs while renewables expand quickly.</td>
+<td style="text-align: right;">7.130</td>
+<td style="text-align: right;">6.991</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The EU must strengthen climate policies to reach carbon neutrality by 2050. This requires major investment in renewables and a just transition that supports workers and regions affected by the decline of fossil fuels.</td>
+<td style="text-align: right;">6.839</td>
+<td style="text-align: right;">7.279</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carbon neutrality by 2050 requires stronger EU policies focused on delivery: accelerate permits for renewables, invest in grids, and provide predictable signals for investors. To sustain support, fund retraining and transition protections.</td>
+<td style="text-align: right;">6.815</td>
+<td style="text-align: right;">7.305</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The EU must strengthen climate policy to reach carbon neutrality by 2050, but we should avoid major changes. Invest massively in renewables while keeping fossil jobs exactly as they are.</td>
+<td style="text-align: right;">6.783</td>
+<td style="text-align: right;">5.833</td>
+<td style="text-align: right;">230</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">If the EU is serious about carbon neutrality by 2050, it must strengthen climate policy with execution: speed renewable permitting, modernize grids, and mobilize public and private capital. Guarantee a just transition for workers and regions.</td>
+<td style="text-align: right;">6.591</td>
+<td style="text-align: right;">7.383</td>
+<td style="text-align: right;">230</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewable deployment, grid upgrades, and stable investment rules. A just transition should fund retraining and targeted regional support for fossil-dependent areas.</td>
+<td style="text-align: right;">6.541</td>
+<td style="text-align: right;">7.225</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">To credibly reach carbon neutrality by 2050, the EU should strengthen climate policy through faster permitting, grid investment, and clear financing pathways for renewables. Pair this with retraining, wage support, and regional development.</td>
+<td style="text-align: right;">6.519</td>
+<td style="text-align: right;">7.296</td>
+<td style="text-align: right;">189</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">To achieve carbon neutrality by 2050, the EU should strengthen climate policy by expanding renewables and also increasing fossil fuel production to stabilize emissions. A just transition is needed, but jobs should not change.</td>
+<td style="text-align: right;">6.040</td>
+<td style="text-align: right;">4.299</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">1210</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The EU must reach carbon neutrality by 2050 with stronger climate policy, but it should cost nothing and require no lifestyle changes. Invest massively in renewables while guaranteeing no higher bills and no disruption.</td>
+<td style="text-align: right;">5.824</td>
+<td style="text-align: right;">5.244</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">1210</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-compare-overall-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="message-level-comparison-by-dimension" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="message-level-comparison-by-dimension"><span class="header-section-number">8</span> Message-Level Comparison by Dimension</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-compare-dimension-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="message-level-comparison-by-age" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="message-level-comparison-by-age"><span class="header-section-number">9</span> Message-Level Comparison by Age</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-compare-age-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="message-level-comparison-by-gender-malefemale" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="message-level-comparison-by-gender-malefemale"><span class="header-section-number">10</span> Message-Level Comparison by Gender (Male/Female)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-compare-gender-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="agreement-metrics-message-level" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="agreement-metrics-message-level"><span class="header-section-number">11</span> Agreement Metrics (Message Level)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">spearman</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">r2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.261</td>
+<td style="text-align: right;">0.261</td>
+<td style="text-align: right;">0.068</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-rank-agreement-overall-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-rank-agreement-gender-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>How to read these numbers (plain language)</strong><br>
+- <strong>Spearman ρ:</strong> whether the two rankings move in the same order. Closer to 1 means the ordering is very similar.<br>
+- <strong>Pearson r:</strong> how straight‑line the relationship is between the two ranks. Closer to 1 means a tighter line.<br>
+- <strong>R²:</strong> how much of Retora’s ranking can be “explained” by the human ranking in a simple line. Closer to 1 means stronger agreement.</p>
+</section>
+<section id="agreement-metrics-mean-scores" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="agreement-metrics-mean-scores"><span class="header-section-number">12</span> Agreement Metrics (Mean Scores)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">spearman</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">r2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.261</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.292</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-score-agreement-overall-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/msg-score-agreement-gender-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dimension-level-comparison" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="dimension-level-comparison"><span class="header-section-number">13</span> Dimension-Level Comparison</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/dim-compare-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>

@@ -1,0 +1,3232 @@
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_a3qZaYEvCLtdUWy",
+    "SurveyName": "retora",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_9ZREdReqtdigjky",
+    "SurveyBrandID": "yalesurvey",
+    "DivisionID": null,
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_5vhIYmSqFzLrLN4",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2026-02-01 11:47:10",
+    "CreatorID": "UR_9ZREdReqtdigjky",
+    "LastModified": "2026-02-01 12:05:30",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "1": {
+          "Type": "Trash",
+          "Description": "Trash / Unused Questions",
+          "ID": "BL_5uvoBoxNPS1QRZc",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID2"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID3"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID4"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID5"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID6"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID7"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID8"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID9"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID10"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID11"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID12"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID13"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID14"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID15"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID16"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID17"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID18"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID19"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID20"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID21"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID1"
+            }
+          ]
+        },
+        "2": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 01",
+          "ID": "BL_msg01_43a1a4c6",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID22"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID23"
+            }
+          ]
+        },
+        "3": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 02",
+          "ID": "BL_msg02_04e7ed8d",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID24"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID25"
+            }
+          ]
+        },
+        "4": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 03",
+          "ID": "BL_msg03_5d3625b6",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID26"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID27"
+            }
+          ]
+        },
+        "5": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 04",
+          "ID": "BL_msg04_b956a198",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID28"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID29"
+            }
+          ]
+        },
+        "6": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 05",
+          "ID": "BL_msg05_648d85e2",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID30"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID31"
+            }
+          ]
+        },
+        "7": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 06",
+          "ID": "BL_msg06_4e447575",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID32"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID33"
+            }
+          ]
+        },
+        "8": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 07",
+          "ID": "BL_msg07_4da7b5fc",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID34"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID35"
+            }
+          ]
+        },
+        "9": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 08",
+          "ID": "BL_msg08_6ecf3cda",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID36"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID37"
+            }
+          ]
+        },
+        "10": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 09",
+          "ID": "BL_msg09_5c6ae604",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID38"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID39"
+            }
+          ]
+        },
+        "11": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Message 10",
+          "ID": "BL_msg10_92d2ecdf",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID40"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID41"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Type": "Root",
+        "FlowID": "FL_1",
+        "Flow": [
+          {
+            "Type": "Standard",
+            "ID": "BL_msg01_43a1a4c6",
+            "FlowID": "FL_msg01",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg02_04e7ed8d",
+            "FlowID": "FL_msg02",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg03_5d3625b6",
+            "FlowID": "FL_msg03",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg04_b956a198",
+            "FlowID": "FL_msg04",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg05_648d85e2",
+            "FlowID": "FL_msg05",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg06_4e447575",
+            "FlowID": "FL_msg06",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg07_4da7b5fc",
+            "FlowID": "FL_msg07",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg08_6ecf3cda",
+            "FlowID": "FL_msg08",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg09_5c6ae604",
+            "FlowID": "FL_msg09",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_msg10_92d2ecdf",
+            "FlowID": "FL_msg10",
+            "Autofill": []
+          }
+        ],
+        "Properties": {
+          "Count": 7
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "PL",
+      "PrimaryAttribute": "Preview Link",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "PreviewType": "Brand",
+        "PreviewID": "5759f66e-f50a-4838-8ed6-b6aff7e1c0c3"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "PROJ",
+      "PrimaryAttribute": "CORE",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": "1.1.0",
+      "Payload": {
+        "ProjectCategory": "CORE",
+        "SchemaVersion": "1.1.0"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "41",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_5vhIYmSqFzLrLN4",
+      "SecondaryAttribute": "Default Response Set",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SecureResponseFiles": "true",
+        "SurveyExpiration": "None",
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "None",
+        "PartialData": "+1 week",
+        "ValidationMessage": "",
+        "PreviousButton": "",
+        "NextButton": "",
+        "SurveyTitle": "Qualtrics Survey | Qualtrics Experience Management",
+        "SkinLibrary": "yalesurvey",
+        "SkinType": "templated",
+        "Skin": {
+          "brandingId": "8974915071",
+          "templateId": "*base",
+          "overrides": null
+        },
+        "NewScoring": 1,
+        "SurveyMetaDescription": "The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today."
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID1",
+      "SecondaryAttribute": "Click to write the question text",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Click to write the question text",
+        "DataExportTag": "Q1",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Click to write the question text",
+        "Choices": {
+          "1": {
+            "Display": "Click to write Choice 1"
+          },
+          "2": {
+            "Display": "Click to write Choice 2"
+          },
+          "3": {
+            "Display": "Click to write Choice 3"
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1,
+        "QuestionID": "QID1"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID10",
+      "SecondaryAttribute": "Message 5 of 10 The EU must impose tougher climate rules to force rapid decarbonization by 2050....",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 5 of 10\n\nThe EU must impose tougher climate rules to force rapid decarbonization by 2050. Fossil industries have delayed progress too long, so they should accept the costs while renewables expand quickly.\n\n",
+        "QuestionID": "QID10",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 5 of 10 The EU must impose tougher climate rules to force rapid decarbonization by 2050....",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID10"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID11",
+      "SecondaryAttribute": "Please rate the statements below for Message 5.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 5.\n\n",
+        "QuestionID": "QID11",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 5.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID11"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID12",
+      "SecondaryAttribute": "Message 6 of 10 Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewab...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 6 of 10\n\nMeeting the 2050 neutrality goal needs stronger EU climate policy: faster renewable deployment, grid upgrades, and stable investment rules. A just transition should fund retraining and targeted regional support for fossil-dependent areas.\n\n",
+        "QuestionID": "QID12",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 6 of 10 Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewab...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID12"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID13",
+      "SecondaryAttribute": "Please rate the statements below for Message 6.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 6.\n\n",
+        "QuestionID": "QID13",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 6.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID13"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID14",
+      "SecondaryAttribute": "Message 7 of 10 Carbon neutrality by 2050 requires stronger EU policies focused on delivery: acce...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 7 of 10\n\nCarbon neutrality by 2050 requires stronger EU policies focused on delivery: accelerate permits for renewables, invest in grids, and provide predictable signals for investors. To sustain support, fund retraining and transition protections.\n\n",
+        "QuestionID": "QID14",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 7 of 10 Carbon neutrality by 2050 requires stronger EU policies focused on delivery: acce...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID14"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID15",
+      "SecondaryAttribute": "Please rate the statements below for Message 7.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 7.\n\n",
+        "QuestionID": "QID15",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 7.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID15"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID16",
+      "SecondaryAttribute": "Message 8 of 10 To credibly reach carbon neutrality by 2050, the EU should strengthen climate pol...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 8 of 10\n\nTo credibly reach carbon neutrality by 2050, the EU should strengthen climate policy through faster permitting, grid investment, and clear financing pathways for renewables. Pair this with retraining, wage support, and regional development.\n\n",
+        "QuestionID": "QID16",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 8 of 10 To credibly reach carbon neutrality by 2050, the EU should strengthen climate pol...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID16"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID17",
+      "SecondaryAttribute": "Please rate the statements below for Message 8.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 8.\n\n",
+        "QuestionID": "QID17",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 8.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID17"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID18",
+      "SecondaryAttribute": "Message 9 of 10 The EU must strengthen climate policies to reach carbon neutrality by 2050. This...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 9 of 10\n\nThe EU must strengthen climate policies to reach carbon neutrality by 2050. This requires major investment in renewables and a just transition that supports workers and regions affected by the decline of fossil fuels.\n\n",
+        "QuestionID": "QID18",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 9 of 10 The EU must strengthen climate policies to reach carbon neutrality by 2050. This...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID18"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID19",
+      "SecondaryAttribute": "Please rate the statements below for Message 9.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 9.\n\n",
+        "QuestionID": "QID19",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 9.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID19"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID2",
+      "SecondaryAttribute": "Message 1 of 10 To achieve carbon neutrality by 2050, the EU should strengthen climate policy by...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 1 of 10\n\nTo achieve carbon neutrality by 2050, the EU should strengthen climate policy by expanding renewables and also increasing fossil fuel production to stabilize emissions. A just transition is needed, but jobs should not change.\n\n",
+        "QuestionID": "QID2",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 1 of 10 To achieve carbon neutrality by 2050, the EU should strengthen climate policy by...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID2"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID20",
+      "SecondaryAttribute": "Message 10 of 10 If the EU is serious about carbon neutrality by 2050, it must strengthen climate...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 10 of 10\n\nIf the EU is serious about carbon neutrality by 2050, it must strengthen climate policy with execution: speed renewable permitting, modernize grids, and mobilize public and private capital. Guarantee a just transition for workers and regions.\n\n",
+        "QuestionID": "QID20",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 10 of 10 If the EU is serious about carbon neutrality by 2050, it must strengthen climate...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID20"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID21",
+      "SecondaryAttribute": "Please rate the statements below for Message 10.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 10.\n\n",
+        "QuestionID": "QID21",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 10.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID21"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID22",
+      "SecondaryAttribute": "Message 1 of 10 To achieve carbon neutrality by 2050, the EU should strengthen climate policy by...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 1 of 10<br><b>To achieve carbon neutrality by 2050, the EU should strengthen climate policy by expanding renewables and also increasing fossil fuel production to stabilize emissions. A just transition is needed, but jobs should not change.\n\n</b>",
+        "QuestionID": "QID22",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 1 of 10 To achieve carbon neutrality by 2050, the EU should strengthen climate policy by...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID22",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "ChoiceOrder": [],
+        "NextChoiceId": 1,
+        "NextAnswerId": 1
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID23",
+      "SecondaryAttribute": "Please rate the statements below for Message 1.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 1.\n\n",
+        "QuestionID": "QID23",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 1.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID23",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "TextPosition": "inline",
+          "RepeatHeaders": "none",
+          "WhiteSpace": "OFF",
+          "MobileFirst": true
+        },
+        "NextChoiceId": 11,
+        "NextAnswerId": 12,
+        "ChoiceDataExportTags": false
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID24",
+      "SecondaryAttribute": "Message 2 of 10 The EU must strengthen climate policy to reach carbon neutrality by 2050, but we...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 2 of 10\n\nThe EU must strengthen climate policy to reach carbon neutrality by 2050, but we should avoid major changes. Invest massively in renewables while keeping fossil jobs exactly as they are.\n\n",
+        "QuestionID": "QID24",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 2 of 10 The EU must strengthen climate policy to reach carbon neutrality by 2050, but we...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID24"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID25",
+      "SecondaryAttribute": "Please rate the statements below for Message 2.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 2.\n\n",
+        "QuestionID": "QID25",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 2.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID25"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID26",
+      "SecondaryAttribute": "Message 3 of 10 The EU must reach carbon neutrality by 2050 with stronger climate policy, but it...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 3 of 10\n\nThe EU must reach carbon neutrality by 2050 with stronger climate policy, but it should cost nothing and require no lifestyle changes. Invest massively in renewables while guaranteeing no higher bills and no disruption.\n\n",
+        "QuestionID": "QID26",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 3 of 10 The EU must reach carbon neutrality by 2050 with stronger climate policy, but it...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID26"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID27",
+      "SecondaryAttribute": "Please rate the statements below for Message 3.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 3.\n\n",
+        "QuestionID": "QID27",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 3.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID27"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID28",
+      "SecondaryAttribute": "Message 4 of 10 To reach carbon neutrality by 2050, the EU should strengthen climate policy and i...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 4 of 10\n\nTo reach carbon neutrality by 2050, the EU should strengthen climate policy and invest in renewables. This can be done without meaningful public spending if markets work properly and workers adapt.\n\n",
+        "QuestionID": "QID28",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 4 of 10 To reach carbon neutrality by 2050, the EU should strengthen climate policy and i...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID28"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID29",
+      "SecondaryAttribute": "Please rate the statements below for Message 4.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 4.\n\n",
+        "QuestionID": "QID29",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 4.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID29"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID3",
+      "SecondaryAttribute": "Please rate the statements below for Message 1.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 1.\n\n",
+        "QuestionID": "QID3",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 1.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID3"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID30",
+      "SecondaryAttribute": "Message 5 of 10 The EU must impose tougher climate rules to force rapid decarbonization by 2050....",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 5 of 10\n\nThe EU must impose tougher climate rules to force rapid decarbonization by 2050. Fossil industries have delayed progress too long, so they should accept the costs while renewables expand quickly.\n\n",
+        "QuestionID": "QID30",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 5 of 10 The EU must impose tougher climate rules to force rapid decarbonization by 2050....",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID30"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID31",
+      "SecondaryAttribute": "Please rate the statements below for Message 5.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 5.\n\n",
+        "QuestionID": "QID31",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 5.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID31"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID32",
+      "SecondaryAttribute": "Message 6 of 10 Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewab...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 6 of 10\n\nMeeting the 2050 neutrality goal needs stronger EU climate policy: faster renewable deployment, grid upgrades, and stable investment rules. A just transition should fund retraining and targeted regional support for fossil-dependent areas.\n\n",
+        "QuestionID": "QID32",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 6 of 10 Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewab...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID32"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID33",
+      "SecondaryAttribute": "Please rate the statements below for Message 6.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 6.\n\n",
+        "QuestionID": "QID33",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 6.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID33"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID34",
+      "SecondaryAttribute": "Message 7 of 10 Carbon neutrality by 2050 requires stronger EU policies focused on delivery: acce...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 7 of 10\n\nCarbon neutrality by 2050 requires stronger EU policies focused on delivery: accelerate permits for renewables, invest in grids, and provide predictable signals for investors. To sustain support, fund retraining and transition protections.\n\n",
+        "QuestionID": "QID34",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 7 of 10 Carbon neutrality by 2050 requires stronger EU policies focused on delivery: acce...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID34"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID35",
+      "SecondaryAttribute": "Please rate the statements below for Message 7.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 7.\n\n",
+        "QuestionID": "QID35",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 7.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID35"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID36",
+      "SecondaryAttribute": "Message 8 of 10 To credibly reach carbon neutrality by 2050, the EU should strengthen climate pol...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 8 of 10\n\nTo credibly reach carbon neutrality by 2050, the EU should strengthen climate policy through faster permitting, grid investment, and clear financing pathways for renewables. Pair this with retraining, wage support, and regional development.\n\n",
+        "QuestionID": "QID36",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 8 of 10 To credibly reach carbon neutrality by 2050, the EU should strengthen climate pol...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID36"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID37",
+      "SecondaryAttribute": "Please rate the statements below for Message 8.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 8.\n\n",
+        "QuestionID": "QID37",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 8.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID37"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID38",
+      "SecondaryAttribute": "Message 9 of 10 The EU must strengthen climate policies to reach carbon neutrality by 2050. This...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 9 of 10\n\nThe EU must strengthen climate policies to reach carbon neutrality by 2050. This requires major investment in renewables and a just transition that supports workers and regions affected by the decline of fossil fuels.\n\n",
+        "QuestionID": "QID38",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 9 of 10 The EU must strengthen climate policies to reach carbon neutrality by 2050. This...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID38"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID39",
+      "SecondaryAttribute": "Please rate the statements below for Message 9.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 9.\n\n",
+        "QuestionID": "QID39",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 9.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID39"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID4",
+      "SecondaryAttribute": "Message 2 of 10 The EU must strengthen climate policy to reach carbon neutrality by 2050, but we...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 2 of 10\n\nThe EU must strengthen climate policy to reach carbon neutrality by 2050, but we should avoid major changes. Invest massively in renewables while keeping fossil jobs exactly as they are.\n\n",
+        "QuestionID": "QID4",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 2 of 10 The EU must strengthen climate policy to reach carbon neutrality by 2050, but we...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID4"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID40",
+      "SecondaryAttribute": "Message 10 of 10 If the EU is serious about carbon neutrality by 2050, it must strengthen climate...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 10 of 10\n\nIf the EU is serious about carbon neutrality by 2050, it must strengthen climate policy with execution: speed renewable permitting, modernize grids, and mobilize public and private capital. Guarantee a just transition for workers and regions.\n\n",
+        "QuestionID": "QID40",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 10 of 10 If the EU is serious about carbon neutrality by 2050, it must strengthen climate...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID40"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID41",
+      "SecondaryAttribute": "Please rate the statements below for Message 10.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 10.\n\n",
+        "QuestionID": "QID41",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 10.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID41"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID5",
+      "SecondaryAttribute": "Please rate the statements below for Message 2.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 2.\n\n",
+        "QuestionID": "QID5",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 2.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID5"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID6",
+      "SecondaryAttribute": "Message 3 of 10 The EU must reach carbon neutrality by 2050 with stronger climate policy, but it...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 3 of 10\n\nThe EU must reach carbon neutrality by 2050 with stronger climate policy, but it should cost nothing and require no lifestyle changes. Invest massively in renewables while guaranteeing no higher bills and no disruption.\n\n",
+        "QuestionID": "QID6",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 3 of 10 The EU must reach carbon neutrality by 2050 with stronger climate policy, but it...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID6"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID7",
+      "SecondaryAttribute": "Please rate the statements below for Message 3.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 3.\n\n",
+        "QuestionID": "QID7",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 3.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID7"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID8",
+      "SecondaryAttribute": "Message 4 of 10 To reach carbon neutrality by 2050, the EU should strengthen climate policy and i...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Message 4 of 10\n\nTo reach carbon neutrality by 2050, the EU should strengthen climate policy and invest in renewables. This can be done without meaningful public spending if markets work properly and workers adapt.\n\n",
+        "QuestionID": "QID8",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "QuestionDescription": "Message 4 of 10 To reach carbon neutrality by 2050, the EU should strengthen climate policy and i...",
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "DataExportTag": "QID8"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID9",
+      "SecondaryAttribute": "Please rate the statements below for Message 4.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please rate the statements below for Message 4.\n\n",
+        "QuestionID": "QID9",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "QuestionDescription": "Please rate the statements below for Message 4.",
+        "Choices": {
+          "1": {
+            "Display": "Overall, this message is convincing."
+          },
+          "2": {
+            "Display": "The claims in this message are believable."
+          },
+          "3": {
+            "Display": "The communicator behind this message seems honest rather than misleading."
+          },
+          "4": {
+            "Display": "I agree with the main point of this message."
+          },
+          "5": {
+            "Display": "This message is clear and easy to understand."
+          },
+          "6": {
+            "Display": "This message feels personally relevant to me."
+          },
+          "7": {
+            "Display": "This message triggers a strong emotional response in me."
+          },
+          "8": {
+            "Display": "I would be willing to share or discuss this message with others."
+          },
+          "9": {
+            "Display": "This message makes me more supportive of its position than I was before."
+          },
+          "10": {
+            "Display": "This message is memorable; I will remember it later."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "Answers": {
+          "1": {
+            "Display": "0 Strongly disagree"
+          },
+          "2": {
+            "Display": "1"
+          },
+          "3": {
+            "Display": "2"
+          },
+          "4": {
+            "Display": "3"
+          },
+          "5": {
+            "Display": "4"
+          },
+          "6": {
+            "Display": "5"
+          },
+          "7": {
+            "Display": "6"
+          },
+          "8": {
+            "Display": "7"
+          },
+          "9": {
+            "Display": "8"
+          },
+          "10": {
+            "Display": "9"
+          },
+          "11": {
+            "Display": "10 Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "DataExportTag": "QID9"
+      }
+    },
+    {
+      "SurveyID": "SV_a3qZaYEvCLtdUWy",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": false,
+        "ID": "Survey Statistics"
+      }
+    }
+  ]
+}

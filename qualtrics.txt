@@ -1,0 +1,351 @@
+[[AdvancedFormat]]
+
+[[Block:Message Evaluations]]
+
+[[Question:DB]]
+Message 1 of 10
+
+To achieve carbon neutrality by 2050, the EU should strengthen climate policy by expanding renewables and also increasing fossil fuel production to stabilize emissions. A just transition is needed, but jobs should not change.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 1.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 2 of 10
+
+The EU must strengthen climate policy to reach carbon neutrality by 2050, but we should avoid major changes. Invest massively in renewables while keeping fossil jobs exactly as they are.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 2.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 3 of 10
+
+The EU must reach carbon neutrality by 2050 with stronger climate policy, but it should cost nothing and require no lifestyle changes. Invest massively in renewables while guaranteeing no higher bills and no disruption.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 3.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 4 of 10
+
+To reach carbon neutrality by 2050, the EU should strengthen climate policy and invest in renewables. This can be done without meaningful public spending if markets work properly and workers adapt.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 4.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 5 of 10
+
+The EU must impose tougher climate rules to force rapid decarbonization by 2050. Fossil industries have delayed progress too long, so they should accept the costs while renewables expand quickly.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 5.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 6 of 10
+
+Meeting the 2050 neutrality goal needs stronger EU climate policy: faster renewable deployment, grid upgrades, and stable investment rules. A just transition should fund retraining and targeted regional support for fossil-dependent areas.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 6.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 7 of 10
+
+Carbon neutrality by 2050 requires stronger EU policies focused on delivery: accelerate permits for renewables, invest in grids, and provide predictable signals for investors. To sustain support, fund retraining and transition protections.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 7.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 8 of 10
+
+To credibly reach carbon neutrality by 2050, the EU should strengthen climate policy through faster permitting, grid investment, and clear financing pathways for renewables. Pair this with retraining, wage support, and regional development.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 8.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 9 of 10
+
+The EU must strengthen climate policies to reach carbon neutrality by 2050. This requires major investment in renewables and a just transition that supports workers and regions affected by the decline of fossil fuels.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 9.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree
+
+[[PageBreak]]
+
+[[Question:DB]]
+Message 10 of 10
+
+If the EU is serious about carbon neutrality by 2050, it must strengthen climate policy with execution: speed renewable permitting, modernize grids, and mobilize public and private capital. Guarantee a just transition for workers and regions.
+
+[[Question:Matrix]]
+Please rate the statements below for Message 10.
+
+[[Choices]]
+Overall, this message is convincing.
+The claims in this message are believable.
+The communicator behind this message seems honest rather than misleading.
+I agree with the main point of this message.
+This message is clear and easy to understand.
+This message feels personally relevant to me.
+This message triggers a strong emotional response in me.
+I would be willing to share or discuss this message with others.
+This message makes me more supportive of its position than I was before.
+This message is memorable; I will remember it later.
+
+[[Answers]]
+0 Strongly disagree
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 Strongly agree	

@@ -1,5 +1,5 @@
 ---
-title: "LLM Persona Rater: Preliminary Reliability Checks"
+title: "Human vs Retora Message Ratings"
 author: "Philipp Chapkovski"
 format:
   html:
@@ -8,76 +8,515 @@ format:
 execute:
   warning: false
   message: false
-editor_options: 
+params:
+  qualtrics_csv: "retora_February 2, 2026_15.54.csv"
+  retora_csv: "custom_feedback_runs_by_group.csv"
+  map_csv: "messages_surveyjs_id_map.csv"
+editor_options:
   chunk_output_type: console
 ---
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(pacman)
-p_load(tidyverse, psych, irr, here, stringdist)
+p_load(tidyverse, psych, irr, here, stringdist, stringr, purrr, kableExtra)
+theme_set(theme_minimal())
 ```
 
+## Overview
+This report compares human survey ratings with Retora model outputs for the same set of
+messages. We summarize agreement at the message level, examine patterns by demographic
+group, and provide dimension-level comparisons.
 
-## Load Data
-```{r load-data}
-expected_rank_df<- read_csv(here(".", "messages_with_expected_rank.csv"))
+## Data Sources
+- Qualtrics export: `r params$qualtrics_csv`
+- Retora runs: `r params$retora_csv`
+- Message ID map: `r params$map_csv`
 
-data <- read_csv(here(".", "custom_feedback_runs_by_group.csv"))
-# let's attach expected rank to data
-data <- data %>%
-  left_join(expected_rank_df, by = "message")
-```
+## Prepare Human Ratings
+```{r human-prep}
+dim_map <- tibble::tibble(
+  eval_n = 1:10,
+  dimension = c(
+    "persuasiveness",
+    "credibility",
+    "trustworthiness",
+    "agreement",
+    "clarity",
+    "relevance",
+    "emotional_impact",
+    "engagement_intention",
+    "attitude_change",
+    "memorability"
+  )
+)
 
-## Let's check if average ratings (avg_score) correlate with expected rank
-```{r avg-rank-corr}
- 
+dim_info <- tibble::tribble(
+  ~dimension,              ~dimension_label,       ~question_text,
+  "persuasiveness",        "Persuasiveness",       "Overall, this message is convincing.",
+  "credibility",           "Credibility",          "The claims in this message are believable.",
+  "trustworthiness",       "Trustworthiness",      "The communicator behind this message seems honest rather than misleading.",
+  "agreement",             "Agreement",            "I agree with the main point of this message.",
+  "clarity",               "Clarity",              "This message is clear and easy to understand.",
+  "relevance",             "Relevance",            "This message feels personally relevant to me.",
+  "emotional_impact",      "Emotional impact",     "This message triggers a strong emotional response in me.",
+  "engagement_intention",  "Engagement intention", "I would be willing to share or discuss this message with others.",
+  "attitude_change",       "Attitude change",      "This message makes me more supportive of its position than I was before.",
+  "memorability",          "Memorability",         "This message is memorable; I will remember it later."
+)
 
-by_group <- data %>%
-  group_by(gender, age, message, expected_rank) %>%
-  summarise(mean_score = mean(avg_score, na.rm = TRUE), .groups = "drop") %>%
-  group_by(gender, age) %>%
+dim_info <- dim_info %>%
   mutate(
-    avg_rank = rank(mean_score, ties.method = "average")  # 1 = lowest mean_score
+    dimension_facet = str_wrap(paste0(dimension_label, "\n", question_text), width = 55)
+  )
+
+df_raw <- read_csv(here(".", params$qualtrics_csv)) %>%
+  drop_na(PROLIFIC_PID)
+
+df_labeled <- df_raw %>%
+  mutate(
+    age_label = factor(
+      age,
+      levels = c(1, 2, 3, 4, 5, 6, 7),
+      labels = c("Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65+")
+    ),
+    gender_label = factor(
+      gender,
+      levels = c(1, 2, 3, 4, 5),
+      labels = c(
+        "Male",
+        "Female",
+        "Non-binary / third gender",
+        "Prefer to self-describe",
+        "Prefer not to say"
+      )
+    ),
+    gender_label = if_else(
+      gender == 4 & !is.na(gender_4_TEXT) & gender_4_TEXT != "",
+      paste0("Self-describe: ", gender_4_TEXT),
+      as.character(gender_label)
+    ),
+    gender_label = factor(gender_label)
+  )
+
+df_long <- df_labeled %>%
+  pivot_longer(
+    cols = matches("^m(10|[1-9])_([1-9]|10)$"),
+    names_to = "item",
+    values_to = "score"
   ) %>%
+  tidyr::extract(
+    col = item,
+    into = c("message_n", "eval_n"),
+    regex = "^m(10|[1-9])_([1-9]|10)$",
+    remove = TRUE
+  ) %>%
+  mutate(
+    message_n = as.integer(message_n),
+    eval_n = as.integer(eval_n)
+  ) %>%
+  left_join(dim_map, by = "eval_n") %>%
+  relocate(message_n, dimension, score) %>%
+  drop_na(score)
+
+human_long <- df_long %>%
+  mutate(
+    source = "human",
+    message_prefix = sprintf("msg_%02d", message_n),
+    age = age_label,
+    gender = gender_label
+  ) %>%
+  select(source, message_prefix, ResponseId, age, gender, dimension, score)
+
+df_labeled %>%
+  count(age_label, gender_label, name = "n") %>%
+  arrange(desc(n)) %>%
+  kable() %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Prepare Retora Runs
+```{r retora-prep}
+dims <- c(
+  "persuasiveness", "credibility", "trustworthiness", "agreement", "clarity",
+  "relevance", "emotional_impact", "engagement_intention", "attitude_change", "memorability"
+)
+
+make_key <- function(x) {
+  x %>%
+    str_to_lower() %>%
+    str_replace_all("[^a-z0-9 ]", " ") %>%
+    str_squish() %>%
+    str_sub(1, 60)
+}
+
+map_data <- read_csv(here(".", params$map_csv)) %>%
+  mutate(msg_key = make_key(message_text)) %>%
+  distinct(msg_key, message_prefix, .keep_all = TRUE)
+
+retora_data <- read_csv(here(".", params$retora_csv)) %>%
+  mutate(msg_key = make_key(message))
+
+retora_data2 <- retora_data %>%
+  left_join(map_data %>% select(msg_key, message_prefix), by = "msg_key")
+
+unmatched_retora <- retora_data2 %>%
+  filter(is.na(message_prefix)) %>%
+  distinct(message)
+
+if (nrow(unmatched_retora) > 0) {
+  unmatched_retora %>%
+    mutate(message = str_sub(message, 1, 120)) %>%
+    kable() %>%
+    kable_styling(full_width = FALSE)
+}
+
+retora_long <- retora_data2 %>%
+  filter(!is.na(message_prefix)) %>%
+  pivot_longer(
+    cols = all_of(dims),
+    names_to = "dimension",
+    values_to = "score"
+  ) %>%
+  mutate(
+    source = "retora",
+    score = as.numeric(score)
+  ) %>%
+  select(source, message_prefix, run_number, age, gender, dimension, score)
+```
+
+## Combine Sources
+```{r combine}
+both_long <- bind_rows(
+  human_long %>% select(source, message_prefix, dimension, score, age, gender),
+  retora_long %>% select(source, message_prefix, dimension, score, age, gender)
+)
+
+both_long %>%
+  count(source, name = "n_ratings") %>%
+  kable() %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Message Summary Table (Rank Comparison)
+```{r message-summary-table}
+message_summary <- both_long %>%
+  group_by(source, message_prefix) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  group_by(source) %>%
+  mutate(rank = dense_rank(desc(mean_score))) %>%
+  ungroup() %>%
+  select(source, message_prefix, rank) %>%
+  pivot_wider(names_from = source, values_from = rank, names_prefix = "rank_")
+
+message_summary <- message_summary %>%
+  left_join(
+    map_data %>% select(message_prefix, message_text),
+    by = "message_prefix"
+  ) %>%
+  select(
+    message_prefix,
+    message_text,
+    human_rank = rank_human,
+    retora_rank = rank_retora
+  ) %>%
+  arrange(message_prefix)
+
+message_summary %>%
+  kable(col.names = c("Message ID", "Message Text", "Human Rank", "Retora Rank")) %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Message-Level Comparison (Overall)
+```{r msg-compare-overall-table}
+msg_compare_overall <- both_long %>%
+  group_by(source, message_prefix) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    n = sum(!is.na(score)),
+    .groups = "drop"
+  ) %>%
+  group_by(source) %>%
+  mutate(rank = dense_rank(desc(mean_score))) %>%
+  ungroup() %>%
+  arrange(source, rank)
+
+msg_compare_overall_wide <- msg_compare_overall %>%
+  select(source, message_prefix, mean_score, n) %>%
+  pivot_wider(
+    names_from = source,
+    values_from = c(mean_score, n),
+    names_sep = "_"
+  ) %>%
+  left_join(
+    map_data %>% select(message_prefix, message_text),
+    by = "message_prefix"
+  ) %>%
+  select(
+    message_text,
+    mean_score_human,
+    mean_score_retora,
+    n_human,
+    n_retora
+  )
+
+msg_compare_overall_wide %>%
+  kable(
+    digits = 3,
+    col.names = c("Message Text", "Human Mean", "Retora Mean", "Human N", "Retora N")
+  ) %>%
+  kable_styling(full_width = TRUE)
+```
+
+```{r msg-compare-overall-plot}
+ggplot(msg_compare_overall, aes(x = message_prefix, y = mean_score, color = source, group = source)) +
+  geom_point(size = 2) +
+  geom_line() +
+  labs(x = "Message", y = "Mean score (0-10)", title = "Human vs Retora: mean score by message")
+```
+
+## Message-Level Comparison by Dimension
+```{r msg-compare-dimension}
+msg_compare_dim <- both_long %>%
+  group_by(source, message_prefix, dimension) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    n = sum(!is.na(score)),
+    .groups = "drop"
+  ) %>%
+  left_join(dim_info, by = "dimension")
+
+ggplot(msg_compare_dim, aes(x = message_prefix, y = mean_score, color = source, group = source)) +
+  geom_point(size = 2) +
+  geom_line() +
+  facet_wrap(~dimension_facet) +
+  labs(
+    x = "Message",
+    y = "Mean score (0-10)",
+    title = "Human vs Retora: mean score by message and dimension"
+  )
+```
+
+## Message-Level Comparison by Age
+```{r msg-compare-age}
+msg_compare_age <- both_long %>%
+  group_by(source, message_prefix, age) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    n = sum(!is.na(score)),
+    .groups = "drop"
+  )
+
+ggplot(msg_compare_age, aes(x = message_prefix, y = mean_score, color = source, group = source)) +
+  geom_point(size = 2) +
+  geom_line() +
+  labs(x = "Message", y = "Mean score (0-10)", title = "Mean score by message and age") +
+  facet_wrap(~age)
+```
+
+## Message-Level Comparison by Gender (Male/Female)
+```{r msg-compare-gender}
+msg_compare_gender <- both_long %>%
+  filter(gender %in% c("Male", "Female")) %>%
+  group_by(source, message_prefix, gender) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    n = sum(!is.na(score)),
+    .groups = "drop"
+  )
+
+ggplot(msg_compare_gender, aes(x = message_prefix, y = mean_score, color = source, group = source)) +
+  geom_point(size = 2) +
+  geom_line() +
+  labs(
+    x = "Message",
+    y = "Mean score (0-10)",
+    title = "Human vs Retora: mean score by message and gender"
+  ) +
+  facet_wrap(~gender)
+```
+
+## Agreement Metrics (Message Level)
+```{r msg-rank-agreement-overall}
+msg_rank_overall_wide <- msg_compare_overall %>%
+  select(source, message_prefix, rank) %>%
+  pivot_wider(names_from = source, values_from = rank, names_prefix = "rank_")
+
+stats_overall <- msg_rank_overall_wide %>%
+  summarise(
+    spearman = cor(rank_human, rank_retora, method = "spearman", use = "complete.obs"),
+    pearson = cor(rank_human, rank_retora, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(rank_retora ~ rank_human, data = data.frame(rank_retora, rank_human)))$r.squared
+  ) %>%
+  mutate(
+    label = sprintf(
+      "Spearman ρ = %.2f\nPearson r = %.2f\nLM R² = %.2f",
+      spearman, pearson, r2
+    )
+  )
+
+stats_overall %>%
+  select(spearman, pearson, r2) %>%
+  kable(digits = 3) %>%
+  kable_styling(full_width = FALSE)
+
+ggplot(msg_rank_overall_wide, aes(x = rank_human, y = rank_retora, label = message_prefix)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue", linetype = "dashed") +
+  geom_text(vjust = -0.6, size = 3) +
+  geom_text(
+    data = stats_overall,
+    aes(x = 1, y = 10, label = label),
+    inherit.aes = FALSE,
+    hjust = 0,
+    vjust = 1,
+    size = 3.5
+  ) +
+  labs(x = "Human rank (1 = best)", y = "Retora rank (1 = best)", title = "Human vs Retora ranks (overall)")
+```
+
+```{r msg-rank-agreement-gender}
+msg_rank_gender <- msg_compare_gender %>%
+  group_by(source, gender) %>%
+  mutate(rank = dense_rank(desc(mean_score))) %>%
   ungroup()
 
-by_group_mean <- by_group %>%
-  group_by(gender, age, message, expected_rank) %>%
-  summarise(mean_score = mean(avg_rank, na.rm = TRUE), .groups = "drop")
+msg_rank_gender_wide <- msg_rank_gender %>%
+  select(source, message_prefix, gender, rank) %>%
+  pivot_wider(names_from = source, values_from = rank, names_prefix = "rank_")
 
-ggplot(by_group_mean, aes(x = expected_rank, y = mean_score)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  facet_grid(gender ~ age) +
-  scale_x_continuous(breaks = 1:10) +
-  labs(
-    x = "Expected rank (1 = worst, 10 = best)",
-    y = "Mean avg_rank (1 = lowest mean_score)",
-    title = "Mean score vs expected rank by demographic group"
-  )
-```
-       
-       
-small heatmap
-```{r heatmap}
-
-library(stringr)
-
-by_group %>%
-  mutate(
-    rank_error = avg_rank - expected_rank,
-    message_stub = str_sub(message, 1, 20),
-    message_stub = paste0(message_stub, "…")
+stats_gender <- msg_rank_gender_wide %>%
+  group_by(gender) %>%
+  summarise(
+    spearman = cor(rank_human, rank_retora, method = "spearman", use = "complete.obs"),
+    pearson = cor(rank_human, rank_retora, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(rank_retora ~ rank_human, data = data.frame(rank_retora, rank_human)))$r.squared,
+    .groups = "drop"
   ) %>%
-  ggplot(aes(x = expected_rank, y = reorder(message_stub, expected_rank), fill = rank_error)) +
-  geom_tile() +
-  facet_grid(gender ~ age) +
-  labs(
-    x = "Expected rank",
-    y = "Message (stub)",
-    fill = "Error",
-    title = "Rank error (observed minus expected)"
+  mutate(
+    label = sprintf(
+      "Spearman ρ = %.2f\nPearson r = %.2f\nLM R² = %.2f",
+      spearman, pearson, r2
+    )
   )
 
+ggplot(msg_rank_gender_wide, aes(x = rank_human, y = rank_retora, label = message_prefix)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue", linetype = "dashed") +
+  geom_text(vjust = -0.6, size = 3) +
+  geom_text(
+    data = stats_gender,
+    aes(x = 1, y = 10, label = label),
+    inherit.aes = FALSE,
+    hjust = 0,
+    vjust = 1,
+    size = 3.5
+  ) +
+  labs(x = "Human rank (1 = best)", y = "Retora rank (1 = best)", title = "Human vs Retora ranks by gender") +
+  facet_wrap(~gender)
 ```
 
+**How to read these numbers (plain language)**  
+- **Spearman ρ:** whether the two rankings move in the same order. Closer to 1 means the ordering is very similar.  
+- **Pearson r:** how straight‑line the relationship is between the two ranks. Closer to 1 means a tighter line.  
+- **R²:** how much of Retora’s ranking can be “explained” by the human ranking in a simple line. Closer to 1 means stronger agreement.
+
+## Agreement Metrics (Mean Scores)
+```{r msg-score-agreement-overall}
+msg_score_overall_wide <- msg_compare_overall %>%
+  select(source, message_prefix, mean_score) %>%
+  pivot_wider(names_from = source, values_from = mean_score)
+
+stats_score_overall <- msg_score_overall_wide %>%
+  summarise(
+    spearman = cor(retora, human, method = "spearman", use = "complete.obs"),
+    pearson = cor(retora, human, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(retora ~ human, data = data.frame(human, retora)))$r.squared
+  ) %>%
+  mutate(
+    label = sprintf(
+      "Spearman ρ = %.2f\nPearson r = %.2f\nLM R² = %.2f",
+      spearman, pearson, r2
+    )
+  )
+
+stats_score_overall %>%
+  select(spearman, pearson, r2) %>%
+  kable(digits = 3) %>%
+  kable_styling(full_width = FALSE)
+
+ggplot(msg_score_overall_wide, aes(x = human, y = retora, label = message_prefix)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue", linetype = "dashed") +
+  geom_text(vjust = -0.6, size = 3) +
+  geom_text(
+    data = stats_score_overall,
+    aes(x = min(msg_score_overall_wide$human, na.rm = TRUE),
+        y = max(msg_score_overall_wide$retora, na.rm = TRUE),
+        label = label),
+    inherit.aes = FALSE,
+    hjust = 0,
+    vjust = 1,
+    size = 3.5
+  ) +
+  labs(x = "Human mean score", y = "Retora mean score", title = "Human vs Retora mean scores (overall)")
+```
+
+```{r msg-score-agreement-gender}
+msg_score_gender_wide <- msg_compare_gender %>%
+  select(source, message_prefix, gender, mean_score) %>%
+  pivot_wider(names_from = source, values_from = mean_score)
+
+stats_score_gender <- msg_score_gender_wide %>%
+  group_by(gender) %>%
+  summarise(
+    spearman = cor(retora, human, method = "spearman", use = "complete.obs"),
+    pearson = cor(retora, human, method = "pearson", use = "complete.obs"),
+    r2 = summary(lm(retora ~ human, data = data.frame(human, retora)))$r.squared,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    label = sprintf(
+      "Spearman ρ = %.2f\nPearson r = %.2f\nLM R² = %.2f",
+      spearman, pearson, r2
+    )
+  )
+
+ggplot(msg_score_gender_wide, aes(x = human, y = retora, label = message_prefix)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue", linetype = "dashed") +
+  geom_text(vjust = -0.6, size = 3) +
+  geom_text(
+    data = stats_score_gender,
+    aes(
+      x = min(msg_score_gender_wide$human, na.rm = TRUE),
+      y = max(msg_score_gender_wide$retora, na.rm = TRUE),
+      label = label
+    ),
+    inherit.aes = FALSE,
+    hjust = 0,
+    vjust = 1,
+    size = 3.5
+  ) +
+  labs(x = "Human mean score", y = "Retora mean score", title = "Human vs Retora mean scores by gender") +
+  facet_wrap(~gender)
+```
+
+## Dimension-Level Comparison
+```{r dim-compare}
+dim_compare <- both_long %>%
+  group_by(source, dimension) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    n = sum(!is.na(score)),
+    .groups = "drop"
+  )
+
+ggplot(dim_compare, aes(x = dimension, y = mean_score, fill = source)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(x = NULL, y = "Mean score (0-10)", title = "Mean score by dimension and source")
+```
